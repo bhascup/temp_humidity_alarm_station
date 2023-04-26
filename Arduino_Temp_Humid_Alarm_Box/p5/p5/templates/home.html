@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Current Temperature Infomation</title>
+</head>
+
+<body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <table>
+        <TR>
+            <TD class="c1">
+                <h2>ID</h2>
+            </TD>
+            <TD class="c2">
+                <h2>Temperature</h2>
+            </TD>
+            <TD class="c3">
+                <h2>Humidity</h2>
+            </TD>
+            <TD class="c4">
+                <h2>Alarm</h2>
+            </TD>
+        </TR>
+        <div id="myDiv">
+            {% for rtu in rtus %}
+            <TR>
+                <TD class="c1">{{rtu.id}}</TD>
+                <TD class="c2">{{rtu.temp}} C</TD>
+                <TD class="c3">{{rtu.humid}} %</TD>
+                <TD class="c4">{{rtu.alarm}}</TD>
+            </TR>
+            {% endfor %}
+        </div>
+    </table>
+
+    
+
+
+
+    
+    {% endblock %}
+
+
+
+
+</body>
+
+</html>

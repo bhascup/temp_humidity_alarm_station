@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Current Temperature Infomation</title>
+</head>
+
+<body>
+  {% extends "template.html" %}
+  {% block content %}
+
+  <table>
+    <TR>
+      <th class="c1">
+        <h2>ID</h2>
+      </th>
+      <th class="c2">
+        <h2>Temperature</h2>
+      </th>
+      <th class="c3">
+        <h2>Humidity</h2>
+      </th>
+      <th class="c4">
+        <h2>Alarm</h2>
+      </th>
+      <th class="c4">
+        <h2>Day</h2>
+      </th>
+      <th class="c4">
+        <h2>Month</h2>
+      </th>
+      <th class="c4">
+        <h2>Year</h2>
+      </th>
+      <th class="c4">
+        <h2>Hour</h2>
+      </th>
+      <th class="c4">
+        <h2>Minute</h2>
+      </th>
+    </TR>
+    {% for save in datapoints %}
+    <TR>
+      <TD class="c1">{{save["unitID"]}}</TD>
+      <TD class="c2">{{save["temperature"]}} C</TD>
+      <TD class="c3">{{save["humidity"]}} %</TD>
+      <TD class="c4">{{save["alarmStatus"]}}</TD>
+      <TD class="c4">{{save["day"]}}</TD>
+      <TD class="c4">{{save["month"]}}</TD>
+      <TD class="c4">{{save["year"]}}</TD>
+      <TD class="c4">{{save["hour"]}}</TD>
+      <TD class="c4">{{save["minute"]}}</TD>
+
+
+
+
+
+    </TR>
+    {% endfor %}
+  </table>
+  <script>
+    window.setInterval('refresh()', 60000); 	// Call a function every 900 000 milliseconds (OR 10 seconds).
+
+    // Refresh or reload page.
+    function refresh() {
+      window.location.reload();
+    }
+  </script>
+
+  {% endblock %}
+</body>
+
+</html>
